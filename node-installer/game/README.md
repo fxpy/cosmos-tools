@@ -12,14 +12,13 @@ Install custom version of Golang #GO.
 Or you can install GO from [official website](https://golang.org/doc/install).  
 
 Specify version and GO path in this line `./go.sh -v GO_VERSION -p GO_PATH`  
-Example `./go.sh -v 1.17.2 -p /root/go`  
+Example `./go.sh -v 1.17.2`  
 
 ### You can use all the variables or not use them at all and then the GO_VERSION and GO_PATH will be used by default as (-v 1.17.1 -p /usr/local/go)  
 
 ```
 wget https://raw.githubusercontent.com/Staketab/node-tools/main/components/golang/go.sh \
-&& chmod +x go.sh \
-&& ./go.sh -v 1.17.2 \
+&& chmod +x go.sh && ./go.sh -v 1.17.2 \
 && rm -rf go.sh
 ```
 Now apply the changes with the command below or reboot your terminal.  
@@ -32,36 +31,40 @@ The run command should look like this:
 ```
 wget https://raw.githubusercontent.com/Staketab/cosmos-tools/main/node-installer/install.sh \
 && chmod +x install.sh \
-&& ./install.sh -g desmos-labs -f desmos -b desmos -c desmos -v v0.17.2 \
+&& ./install.sh -g cosmos-gaminghub -f nibiru -b nibirud -c nibiru -v v0.9 \
 && rm -rf install.sh && . $HOME/.profile
 ```
 
-## 3. Data for start the chain. 
+## 3. Data for start the chain.  
+Binary link:
+```
+https://github.com/cosmos-gaminghub/nibiru/releases/download/v0.9/nibirud-v0.9
+```
 Chain-id:
 ```
-morpheus-apollo-2
-```
+nibiru-3000
+```  
 Genesis file:
 ```
-https://raw.githubusercontent.com/desmos-labs/morpheus/master/morpheus-apollo-2/genesis.json
+https://raw.githubusercontent.com/cosmos-gaminghub/testnets/master/nibiru-3000/genesis.json
 ```
 Peers:
 ```
-None
+e81d6d3e9e9166c5fa2098a06efd889f16c37d46@195.201.59.194:26656
 ```
 Seed:
 ```
-be3db0fe5ee7f764902dbcc75126a2e082cbf00c@seed-1.morpheus.desmos.network:26656,4659ab47eef540e99c3ee4009ecbe3fbf4e3eaff@seed-2.morpheus.desmos.network:26656,1d9cc23eedb2d812d30d99ed12d5c5f21ff40c23@seed-3.morpheus.desmos.network:26656
+4d6c590024b3a24985e910b172fc3b7d3493648a@45.32.39.253:26656
 ```
 minimum-gas-prices:
 ```
-0.025udaric
+0.001ugame
 ```
 
 ## 4. Service commands.
-Reload configuration change - `systemctl daemon-reload`  
-Restart Cosmovisor service - `systemctl restart desmos.service`  
-Cosmovisor service logs - `journalctl -u desmos.service -f`  
-Stop Cosmovisor service - `systemctl stop desmos.service`  
+Reload configuration change - `sudo systemctl daemon-reload`  
+Restart Cosmovisor service - `sudo systemctl restart nibirud.service`  
+Cosmovisor service logs - `sudo journalctl -u nibirud.service -f`  
+Stop Cosmovisor service - `sudo systemctl stop nibirud.service`  
 
 ## DONE

@@ -12,14 +12,13 @@ Install custom version of Golang #GO.
 Or you can install GO from [official website](https://golang.org/doc/install).  
 
 Specify version and GO path in this line `./go.sh -v GO_VERSION -p GO_PATH`  
-Example `./go.sh -v 1.17.2 -p /root/go`  
+Example `./go.sh -v 1.17.2`  
 
 ### You can use all the variables or not use them at all and then the GO_VERSION and GO_PATH will be used by default as (-v 1.17.1 -p /usr/local/go)  
 
 ```
 wget https://raw.githubusercontent.com/Staketab/node-tools/main/components/golang/go.sh \
-&& chmod +x go.sh \
-&& ./go.sh -v 1.17.2 \
+&& chmod +x go.sh && ./go.sh -v 1.17.2 \
 && rm -rf go.sh
 ```
 Now apply the changes with the command below or reboot your terminal.  
@@ -32,36 +31,40 @@ The run command should look like this:
 ```
 wget https://raw.githubusercontent.com/Staketab/cosmos-tools/main/node-installer/install.sh \
 && chmod +x install.sh \
-&& ./install.sh -g desmos-labs -f desmos -b desmos -c desmos -v v0.17.2 \
+&& ./install.sh -g cosmic-horizon -f coho -b cohod -c coho -v v0.1 \
 && rm -rf install.sh && . $HOME/.profile
 ```
 
-## 3. Data for start the chain. 
+## 3. Data for start the chain.  
+Binary link:
+```
+https://github.com/cosmic-horizon/coho/releases/download/v0.1/cohod-v0.1-linux-amd64
+```
 Chain-id:
 ```
-morpheus-apollo-2
-```
+darkmatter-1
+```  
 Genesis file:
 ```
-https://raw.githubusercontent.com/desmos-labs/morpheus/master/morpheus-apollo-2/genesis.json
+https://raw.githubusercontent.com/cosmic-horizon/testnets/main/darkmatter-1/genesis.json
 ```
 Peers:
 ```
-None
+4338abf9fdbe143e59119d25310d8187e776df8a@89.58.6.243:26656,038e405c3bc3b7a72b2a8fe9759e4495ac9f7ab0@97.113.198.230:26656,20d436ab002bed85fbf0a1740cdf44d56594d62f@149.28.13.161:26656
 ```
 Seed:
 ```
-be3db0fe5ee7f764902dbcc75126a2e082cbf00c@seed-1.morpheus.desmos.network:26656,4659ab47eef540e99c3ee4009ecbe3fbf4e3eaff@seed-2.morpheus.desmos.network:26656,1d9cc23eedb2d812d30d99ed12d5c5f21ff40c23@seed-3.morpheus.desmos.network:26656
+none
 ```
 minimum-gas-prices:
 ```
-0.025udaric
+0.001ucoho
 ```
 
 ## 4. Service commands.
-Reload configuration change - `systemctl daemon-reload`  
-Restart Cosmovisor service - `systemctl restart desmos.service`  
-Cosmovisor service logs - `journalctl -u desmos.service -f`  
-Stop Cosmovisor service - `systemctl stop desmos.service`  
+Reload configuration change - `sudo systemctl daemon-reload`  
+Restart Cosmovisor service - `sudo systemctl restart cohod.service`  
+Cosmovisor service logs - `sudo journalctl -u cohod.service -f`  
+Stop Cosmovisor service - `sudo systemctl stop cohod.service`  
 
 ## DONE
